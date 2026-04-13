@@ -1,0 +1,32 @@
+# --- Python/uv Standards ---
+.venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# --- Build/Packaging ---
+dist/
+build/
+*.egg-info/
+
+# --- Project Specifics ---
+# Ignore downloaded media
+*.mp4
+*.mkv
+*.mp3
+*.m4a
+*.webm
+*.part
+
+# yt-dlp cache
+/yt-dlp-plugins
+.cache/
+.yt-dlp/
+
+# --- IDE/Environment ---
+.env
+.vscode/
+.idea/
+.DS_Store
