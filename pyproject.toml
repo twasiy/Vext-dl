@@ -13,3 +13,8 @@ dependencies = [
     "typing>=3.10.0.0",
     "yt-dlp[default]>=2026.3.17",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.3",
+]
