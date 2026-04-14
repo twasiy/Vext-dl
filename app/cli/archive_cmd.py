@@ -63,6 +63,6 @@ def add_to_archive(
     try:
         with open(path, "a", encoding="utf-8") as f:
             f.write(entry)
-        typer.secho(f"✅ Added {extractor} ID '{video_id}' to archive.", fg="green")
+        typer.secho(f"Added {extractor} ID '{video_id}' to archive.", fg="green")
     except Exception as e:
-        typer.secho(f"❌ Failed to write to archive: {e}", fg="red")
+        typer.secho(f"Failed to write to archive: {e}", fg="red")
