@@ -6,7 +6,7 @@ from utils import create_initial_dirs
 
 app = typer.Typer(
     rich_markup_mode="rich",
-    help="[bold blue]YTFAST[/bold blue]: A high-performance, production-ready media downloader.",
+    help="[bold blue]Vext[/bold blue]: A high-performance, production-ready media downloader.",
     add_completion=False,
     epilog=(
         "  [bold]Quick Start:[/bold]\n"
@@ -52,8 +52,9 @@ app.add_typer(
 @app.command("map", rich_help_panel="Maintenance")
 def show_map():
     """Display a full map of every command and subcommand."""
+
     table = Table(
-        title="YTFAST Command Map", show_header=True, header_style="bold magenta"
+        title="Vext Command Map", show_header=True, header_style="bold magenta"
     )
     table.add_column("Category", style="cyan")
     table.add_column("Subcommand", style="yellow")
@@ -64,7 +65,9 @@ def show_map():
     table.add_row("playlist", "get | info", "Batch process playlists")
     table.add_row("archive", "show | add | clear", "Manage download history")
     table.add_row(
-        "config", "show | set", "Manage the tool's behavior and global variable states."
+        "config",
+        "show | set | clear",
+        "Manage the tool's behavior and global variable states.",
     )
 
     rprint(table)
@@ -77,11 +80,10 @@ def main(
         None, "--version", "-V", help="Show version and exit."
     ),
 ):
-    """
-    YTFAST CLI Downloader.
-    """
+    """Vext CLI Media Downloader."""
+
     if version:
-        rprint("[bold blue]YTFAST v1.0.0[/bold blue]")
+        rprint("[bold blue]Vext v1.0.0[/bold blue]")
         raise typer.Exit()
 
     if ctx.invoked_subcommand is None:

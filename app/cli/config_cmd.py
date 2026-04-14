@@ -51,4 +51,23 @@ def show_config():
         table.add_row(key, val, desc)
 
     rprint(table)
-    rprint("\n[dim]Usage: Vext config set <key> <value>[/dim]")
+    rprint("\n[dim]Usage: config set <key> <value>[/dim]")
+
+
+@config_app.command("clear")
+def clear_config(
+    force: Annotated[
+        bool, typer.Option("--force", "-f", help="Force clear without confirmation.")
+    ] = False,
+):
+    """Reset all settings to factory defaults."""
+
+    if not force:
+        confirm = typer.confirm("This will delete all custom settings. Proceed?")
+        if not confirm:
+            raise typer.Exit()
+
+    Settings.clear()
+    typer.secho(
+        "All settings cleared. Back to factory defaults!", fg="magenta", bold=True
+    )

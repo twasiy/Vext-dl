@@ -46,7 +46,10 @@ class Settings:
             try:
                 with open(cls.CONFIG_PATH, "r", encoding="utf-8") as f:
                     user_data = json.load(f)
-                    settings.update(user_data)
+                    valid_data = {
+                        k: v for k, v in user_data.items() if k in cls.DEFAULTS
+                    }
+                    settings.update(valid_data)
             except Exception:
                 pass  # Fallback to defaults if JSON is corrupt
         return settings
@@ -65,3 +68,7 @@ class Settings:
         data[key] = value
         with open(cls.CONFIG_PATH, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4)
+
+    @classmethod
+    def clear(cls) -> None:
+        cls.CONFIG_PATH.unlink(missing_ok=True)
