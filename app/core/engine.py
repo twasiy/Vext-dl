@@ -112,7 +112,7 @@ class Engine:
                 info = self.ydl.extract_info(url, download=False)
                 if info:
                     title = info.get("title", "Video")
-                    progress.update(task_id, description=f"Working: {title[:40]}...")  # type:ignore
+                    progress.update(task_id, description=f"» {title[:20]}...")  # type:ignore
                 return self.ydl.download([url]) == 0
             except Exception as e:
                 self.logger.error(f"Download failed: {e}")

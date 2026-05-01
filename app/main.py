@@ -7,7 +7,7 @@ from utils import create_initial_dirs
 app = typer.Typer(
     rich_markup_mode="rich",
     help="[bold blue]Vext[/bold blue]: A high-performance, production-ready media downloader.",
-    add_completion=False,
+    add_completion=True,
     epilog=(
         "  [bold]Quick Start:[/bold]\n"
         "  [yellow]video get[/yellow] <url> --res 1080p\n"
